@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
-import { CrudService } from './../crud.service'
+import {FormGroup, FormControl, Validators, FormBuilder, AbstractControl} from '@angular/forms';
+import { CrudService } from './../crud.service';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -11,7 +11,7 @@ export class FormComponent implements OnInit {
 
   notesForm: FormGroup;
   isSubmitted = false;
-  notesList:any = [];
+  notesList: any = [];
 
   constructor(private formBuilder: FormBuilder, private crud: CrudService) { }
 
@@ -21,25 +21,25 @@ export class FormComponent implements OnInit {
     this.notesForm = this.formBuilder.group({
       title: ['', Validators.required],
       body: ['', Validators.required]
-    })
+    });
   }
 
-  get formControls() { return this.notesForm.controls; }
+  get formControls(): { [p: string]: AbstractControl } { return this.notesForm.controls; }
 
-  onSubmit(form) {
+  onSubmit = form => {
     this.isSubmitted = false;
     if (this.notesForm.valid) {
-     this.notesList =  this.crud.save(this.notesForm.value.title, this.notesForm.value.body)
+     this.notesList =  this.crud.save(this.notesForm.value.title, this.notesForm.value.body);
      form.resetForm();
     }
   }
 
-  remove(index){
+  remove = index => {
     this.notesList = this.crud.remove(index);
   }
 
 
-  logout(){
-    
+  logout = () => {
+
   }
 }
