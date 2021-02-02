@@ -1,0 +1,58 @@
+.form{
+    padding: 0 15px;
+}
+form{
+    width: 100%;
+    padding: 50px;
+}
+.full-width {
+    width:100%;
+}
+.header{
+    border-bottom: solid 1px; 
+    padding: 15px 0;
+    .col-md-4 {
+        button{
+            float: right;
+        }
+    }
+    .col-md-8 {
+        padding: 5px 60px;
+        font-size: 40px;
+        font-weight: bold;
+    }
+}
+.list{
+    border-right: solid 1px;
+    min-height: 800px; 
+}
+.notes-list{
+    &__heading{
+        color: #5a5a64;
+        font-size: 20px;
+        text-transform: capitalize;
+        margin-top: 15px;
+        margin-bottom: 5px;
+    }
+    &__lead{
+        color: #988181;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-style: italic;
+    }
+    &__not-found{
+        color: #988181;
+        text-align: center;
+        padding:50px 15px;
+    }
+}
+
+span{
+    float: right;
+    font-size: 14px;
+    &:hover {
+        font-weight: bold;
+        cursor: pointer;
+    }
+}
